@@ -3,7 +3,7 @@
 
 // src/views/Home.js
 
-export function Home(props) {
+ function Home(props) {
   const viewEl = document.createElement('div');
   viewEl.textContent = 'Welcome to the home page!';
 
@@ -12,13 +12,7 @@ export function Home(props) {
   return viewEl;
 }
 
-// src/views/About.js
-
-export function About(props) {
-  const viewEl = document.createElement('div');
-  viewEl.textContent = 'This is the About page.';
-  return viewEl;
-}
+export default Home; /*va default por que en el archivo index.js en su L9 no se pusieron las {} entonce default cumple la funcion de las llavesitas esas*/
 
 // Definir funciones/componentes similares para otras rutas
 
