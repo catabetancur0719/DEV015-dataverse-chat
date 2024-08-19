@@ -1,13 +1,6 @@
- //es el remplazo del archivo view de data verse?? aqi va el renderizado
 
-/* export const Home = () => {
-    const el = document.createElement("h1");
-    el.innerHTML = "I'm the Home Page";
-   return el;
- }*/
- 
  let ROUTES = {};
- let rootEl;
+ let rootEl;  //en esta variable  se almacenara el DOM ( se crean las URL solo eso)
  
  export const setRootEl = (el) => { //fx que asigna elemento DOM  y verifica q el argumento sea una instancia de HTMLElement.
    // funcion q inicializa la variable rootEl
@@ -20,7 +13,7 @@
  export const setRoutes = (routes) => {
    // optional Throw errors if routes isn't an object
    // optional Throw errors if routes doesn't define an /error route
-   // assign ROUTES
+   // Asignamos el valor de routers al objeto ROUTES
     ROUTES = routes;
   }
  
@@ -28,6 +21,8 @@
    // convert query string to URLSearchParams
    // convert URLSearchParams to an object
    // return the object
+   const urlParams =Object.fromEntries(new URLSearchParams(queryString));
+   return urlParams;
  }
  
  const renderView = (pathname, props={}) => {
@@ -46,18 +41,23 @@
   //Verifica si la ruta especificada existe en las rutas definidas (ROUTES) o si se proporciona un parámetro "id" en props
   if(!ROUTES[pathname] || (keyId ? keyId !== "id" : false)){
     // Si no existe, redirigir a la ruta de error
-    window.history.pushState({}, "/errorGatuno", `${window.location.origin}/errorGatuno`);
+    window.history.pushState({}, "/errorView", `${window.location.origin}/errorView`);
+   
     // Actualizar pathname
-    pathname = "/errorGatuno";
+    pathname = "/errorView";
   } 
   //Se agrega la ruta al root para renderizar una vista(chatGato, gaotInfo, chatGrupal) 
   rootEl.appendChild(ROUTES[pathname](props));
  } 
  
- export const navigateTo = (pathname, props={}) => {
-   // update window history with pushState
-   // render the view with the pathname and props
- }
+ export const navigateTo = (pathname, props) => {
+  // update window history with pushState
+  // render the view with the pathname and props
+  // Guardamos la nueva "dirección" en la barra de direcciones
+  window.history.pushState({ pathname, ...props}, '', pathname); //comilla vacia por temas de compativilidad 
+  // Mostramos la nueva "pantalla" correspondiente
+  renderView(pathname, props);
+}
  
  export const onURLChange = (location) => {
    // parse the location for the pathname and search params
