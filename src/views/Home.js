@@ -12,7 +12,7 @@ import { navigateTo } from "../router.js";
   <h1>Home</h1>
   <a href="#" id="aboutLink">About</a>
   <a href="#" id="contactLink">Contact</a>
-  <a href="#" id="individualchatLink">Chat</a>
+  <a href="#" id="indichatLink">Chat</a>
 
   `;
 //estos son los manejadores de eventos
@@ -26,8 +26,10 @@ import { navigateTo } from "../router.js";
     navigateTo('/contact');
   });
   
-
-
+  viewEl.querySelector('#indichatLink').addEventListener('click',(eventTh) =>{
+    eventTh.preventDefault();
+    navigateTo('/indichatLink');
+  });
  // console.log(Home);
 
   return viewEl;
