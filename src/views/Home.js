@@ -39,5 +39,5 @@ import { navigateTo } from "../router.js";
 export default Home; /*default es en remplazo de los {} del archivo index.js L9 cumple la funcion de la llaves*/
 
 
-
+// SOLO PARA EFECTOS E GITHUB
 
