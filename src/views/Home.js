@@ -1,21 +1,40 @@
-// este es un componente, cada vista es un componente 
+// General: cada archivo dentro de la carpeta view debe llevar elementos del html renderizados
 // Definir funciones/componentes similares para otras rutas
 
 // src/views/Home.js
+import { data } from '../data/dataset.js';
+import { filterData } from '../lib/dataFunctions.js';
+import { navigateTo } from "../router.js";
 
  function Home(props) {
   const viewEl = document.createElement('div');
-  viewEl.textContent = 'Welcome to the home page!';
+ // viewEl.textContent = 'Welcome to the home page!';
 
-  console.log(Home);
+  viewEl.innerHTML= `
+  <h1>House of Rock </h1>
+  
+  <button type="button" id="aboutLink">About</button>
+  <button type="button" id="indichatLink">Chat</button>
+
+  `;
+//estos son los manejadores de eventos
+  viewEl.querySelector('#aboutLink').addEventListener( 'click', () => { 
+    navigateTo('/about');
+  });
+ 
+  /* preguntar x este codigo en dudas rapidas 
+    const linkEl = viewEl.querySelector('#aboutLink');
+    linkEl.addEventListener('click', () => navigateTo("/about", { name: "Xochitl" }));*/
+  
+  viewEl.querySelector('#indichatLink').addEventListener('click',() =>{
+    navigateTo('/indichatLink');
+  });
+ // console.log(Home);
 
   return viewEl;
 }
+ 
 
-export default Home; /*va default por que en el archivo index.js en su L9 no se pusieron las {} entonce default cumple la funcion de las llavesitas esas*/
-
-// Definir funciones/componentes similares para otras rutas
-
-
+export default Home; /*default es en remplazo de los {} del archivo index.js L9 cumple la funcion de la llaves*/
 
 
