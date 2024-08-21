@@ -2,6 +2,8 @@
 // Definir funciones/componentes similares para otras rutas
 
 // src/views/Home.js
+import { data } from '../data/dataset.js';
+import { filterData } from '../lib/dataFunctions.js';
 import { navigateTo } from "../router.js";
 
  function Home(props) {
