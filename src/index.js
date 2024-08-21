@@ -28,8 +28,10 @@ setRoutes(routes);
 // Set the root element where views will be rendered
 window.addEventListener("DOMContentLoaded", () => {
   setRootEl(document.querySelector("#root") );  //llama al div root del html x su id
-  //console.log(Home)
   onURLChange(window.location)
 });
 
-
+// Handle URL changes
+window.addEventListener('popstate', ({event}) => {
+  onURLChange(window.location); /// Llama a onURLChange con la URL actual
+});
