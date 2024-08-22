@@ -6,7 +6,7 @@ export function About(props) {
     viewEl.innerHTML = `
       <h1>About</h1>
       <button type="button" name="home">Home</button>
-      <button type="button" name="contact">Contact</button>
+      
       <button type="button" name="chat">Chat</button> 
      `;
    
@@ -16,6 +16,5 @@ export function About(props) {
 
   viewEl.addEventListener('click', () =>navigateTo ("/Chat",{name:"Xochitlu"}));
 
-  viewEl.addEventListener('click', () =>navigateTo ("/contact",{name:"Xochitlo"}));
     return viewEl;
   }
