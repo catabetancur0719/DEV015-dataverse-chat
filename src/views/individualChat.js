@@ -1,6 +1,6 @@
 import { navigateTo } from "../router.js";
 
-<<<<<<< HEAD
+
 export function ChatIndividual() {
   const element = document.createElement('div');
   element.innerHTML = `
@@ -20,18 +20,4 @@ export function ChatIndividual() {
     
   return element;
 }
-=======
-import {navigateTo} from "../router.js";
 
-export function ChatIndividual(props) {
-    const element = document.createElement('div');
-    element.innerHTML = `<h1>Chat Individual</h1>    
-    <button type="button" id="returnbutton">Home</button>`;
-
-    element.querySelector('#returnbutton').addEventListener( 'click', () => { 
-        navigateTo('/');
-       });
-       
-    return element;
-}
->>>>>>> hito2

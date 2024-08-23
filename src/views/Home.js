@@ -19,7 +19,6 @@ function Home(props) {
   <h1>House of Rock </h1>
   
   <button type="button" id="aboutLink">About</button>
-
   <button type="button" id="indiChatLink">Chat</button>
 
   `;
@@ -50,4 +49,3 @@ function Home(props) {
 
 
 export default Home; /*default es en remplazo de los {} del archivo index.js L9 cumple la funcion de la llaves*/
-`
