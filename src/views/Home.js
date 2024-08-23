@@ -6,6 +6,8 @@ import  data  from '../data/dataset.js';
 //import { filterData } from '../lib/dataFunctions.js';
 import {renderItems} from '../components/cards.js';
 import { navigateTo } from "../router.js";
+//import{ filterSection }from '../components/filters.js';// esto es la parte de los filtros  de html en dataverse
+
 
  function Home(props) {
   const viewEl = document.createElement('div');
@@ -19,25 +21,28 @@ import { navigateTo } from "../router.js";
 
   `;
 //estos son los manejadores de eventos
+//const filtres = document.querySelector("filterSection")
+
+const root =  document.getElementById("root");
+root.appendChild(renderItems(data)) //si no esta dentro de la funcion no se ve nada pero si esta adentro se ve en el orden que no es
+//console.log(root)
+
   viewEl.querySelector('#aboutLink').addEventListener( 'click', () => { 
     navigateTo('/about');
   });
  
  
   viewEl.querySelector('#indichatLink').addEventListener('click',() =>{
-    navigateTo('/indichatLink');
+    navigateTo('/individualChat');
   });
  // console.log(Home);
  
 
+
   return viewEl;
 }
  
-const root =  document.getElementById("root");
 
-
- root.appendChild(renderItems(data))
-//console.log(root)
 
 export default Home; /*default es en remplazo de los {} del archivo index.js L9 cumple la funcion de la llaves*/
 
