@@ -14,6 +14,9 @@ import { navigateTo } from "../router.js";
  // viewEl.textContent = 'Welcome to the home page!';
 
   viewEl.innerHTML= `
+  <img src="../components/img/banner4.jpg" alt="banner">
+  newElementLi.classList.add("banner")
+  
   <h1>House of Rock </h1>
   
   <button type="button" id="aboutLink">About</button>
