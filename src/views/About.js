@@ -5,17 +5,18 @@ export function About(props) {
     const viewEl = document.createElement('div');
     viewEl.innerHTML = `
       <h1>About</h1>
-      <button type="button" name="home">Home</button>
-      <button type="button" name="contact">Contact</button>
-      <button type="button" name="chat">Chat</button> 
+      <button type="button" id="returnHome">Home</button>
+      <button type="button" id="chat">Chat</button> 
      `;
    
 
+ viewEl.querySelector('#returnHome').addEventListener( 'click', () => { 
+   navigateTo('/');
+  });
+ 
+  viewEl.querySelector('#chat').addEventListener( 'click', () => { 
+    navigateTo('/individualChat');
+   });
 
-  viewEl.addEventListener('click', () =>navigateTo ("/home",{name:"Xochitl"}));
-
-  viewEl.addEventListener('click', () =>navigateTo ("/Chat",{name:"Xochitlu"}));
-
-  viewEl.addEventListener('click', () =>navigateTo ("/contact",{name:"Xochitlo"}));
     return viewEl;
   }
