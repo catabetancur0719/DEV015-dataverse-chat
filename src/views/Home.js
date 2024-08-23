@@ -50,3 +50,4 @@ function Home(props) {
 
 
 export default Home; /*default es en remplazo de los {} del archivo index.js L9 cumple la funcion de la llaves*/
+`
