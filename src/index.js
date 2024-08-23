@@ -7,7 +7,7 @@ TODO:
 3.- Invocar el router para renderizar la vista correcta.
 */
 import Home from './views/Home.js';//import the views
-import { About } from './views/About.js';
+import {About} from './views/About.js';
 import {ChatIndividual} from './views/individualChat.js';
 import {ErrorView} from './views/ErrorView.js';
 import { setRootEl, setRoutes, onURLChange } from './router.js';
@@ -32,13 +32,13 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 // Handle URL changes postward y back ESTARA BIEN??'
-window.addEventListener('popstate', () => {
+window.addEventListener('popstate', () => {   // ojo aqui si la navegacion de las vistas no funciona entre los parentesis van {target} y hacer un console.log a target eso ayuda a ver
 
   //cosntruye el objt location
   const location = {
     pathname: window.location.pathname,
     search: window.location.search,
   };
-  console.log('hola popstate');
+ 
   onURLChange(location); /// Llama a onURLChange con la URL actual
 });
