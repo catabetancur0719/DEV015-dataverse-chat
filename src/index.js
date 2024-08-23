@@ -31,7 +31,14 @@ window.addEventListener("DOMContentLoaded", () => {
   onURLChange(window.location)
 });
 
-// Handle URL changes
-window.addEventListener('popstate', ({event}) => {
-  onURLChange(window.location); /// Llama a onURLChange con la URL actual
+// Handle URL changes postward y back ESTARA BIEN??'
+window.addEventListener('popstate', () => {
+
+  //cosntruye el objt location
+  const location = {
+    pathname: window.location.pathname,
+    search: window.location.search,
+  };
+  console.log('hola popstate');
+  onURLChange(location); /// Llama a onURLChange con la URL actual
 });
