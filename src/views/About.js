@@ -9,10 +9,6 @@ export function About(props) {
       <button type="button" id="chat">Chat</button> 
      `;
     
-  viewEl.querySelector('#chat').addEventListener( 'click', () => { 
-    navigateTo('/individualChat');
-
-  });
   const homeLinkEl = viewEl.querySelector('.returnHome');
   homeLinkEl.addEventListener('click', () => navigateTo("/", { name: "Xochitl" }));
   
