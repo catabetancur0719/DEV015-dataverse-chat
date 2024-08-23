@@ -8,6 +8,7 @@ export function About(props) {
       <button type="button" class="returnHome">Home</button>
       <button type="button" id="chat">Chat</button> 
      `;
+
   const homeLinkEl = viewEl.querySelector('.returnHome');
   homeLinkEl.addEventListener('click', () => navigateTo("/", { name: "Xochitl" }));
   
