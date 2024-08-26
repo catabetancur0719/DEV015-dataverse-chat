@@ -19,7 +19,7 @@ export const renderItems = (data) => {
       <p>Año de creación:${element.facts.añoCreacion}</p> 
       <p>Lugar de Origen:${element.facts.pais}</p>
       <p>Album más vendido:${element.facts.albumMasFamoso}</p>
-      <p>Integrantes:${element.facts.integrantes}</p> `
+      <p>Integrantes:${element.facts.integrantes}</p>`
     newElementUl.appendChild(newElementLi);//el ul es el padre y va a tener un hijo li
     
   });

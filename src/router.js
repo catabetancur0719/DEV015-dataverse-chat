@@ -26,14 +26,9 @@ export const queryStringToObject = (queryString) => { //no exportada
  
 export const renderView = (pathname, props = {}) => {  //no exportada
   rootEl.innerHTML = "";
-  let keyId = 0;
-  //let valueId = 0;
-  for (const key in props) {
-    keyId = key;
-    //valueId = props[key];
-  }
+
   //Verifica si la ruta especificada existe en las rutas definidas (ROUTES) o si se proporciona un parámetro "id" en props
-  if(!ROUTES[pathname]  /*|| (keyId ? keyId !== "name" : false)*/ ){
+  if(!ROUTES[pathname]){
     // Si no existe, redirigir a la ruta de error
     window.history.pushState({}, "/errorView", `${window.location.origin}/errorView`);
    
