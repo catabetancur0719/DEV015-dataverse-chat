@@ -1,14 +1,23 @@
+import { navigateTo } from "../router.js";
 
-import {navigateTo} from "../router.js";
 
-export function ChatIndividual(props) {
-    const element = document.createElement('div');
-    element.innerHTML = `<h1>Chat Individual</h1>    
-    <button type="button" id="returnbutton">Home</button>`;
+export function ChatIndividual(band) {//variable que recibe el elemento
+  const element = document.createElement('div');
+  element.innerHTML = `
+  <h1>Chat Individual </h1>
+  
+  <button type="button" class="returnHome">Home</button>
+  `;
 
-    element.querySelector('#returnbutton').addEventListener( 'click', () => { 
-        navigateTo('/');
-       });
-       
-    return element;
+  /*element.querySelector('.returnHome').addEventListener('click',() =>{
+    navigateTo('/');*/
+  const elementLinkEl = element.querySelector('.returnHome');
+  elementLinkEl.addEventListener('click', () => navigateTo("/", { name: "Xochitl" }));
+  
+  
+console.log(band)
+
+    
+  return element;
 }
+

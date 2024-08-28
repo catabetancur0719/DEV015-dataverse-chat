@@ -9,37 +9,33 @@ import { navigateTo } from "../router.js";
 //import{ filterSection }from '../components/filters.js';// esto es la parte de los filtros  de html en dataverse
 
 
- function Home(props) {
-  const viewEl = document.createElement('div');
- // viewEl.textContent = 'Welcome to the home page!';
 
-  viewEl.innerHTML= `
-  <img src="../components/img/banner4.jpg" alt="banner">
-  newElementLi.classList.add("banner")
-  
+
+function Home(props) {
+  const viewEl = document.createElement('div');
+ // const root =  document.getElementById("root");
+  //root.classList.add("vacio");
+ 
+  const headerEl = document.createElement('header'); 
+  headerEl.innerHTML= `
+  <img src="../components/img/banner4.jpg" alt="banner" >
+
   <h1>House of Rock </h1>
   
   <button type="button" id="aboutLink">About</button>
-  <button type="button" id="indichatLink">Chat</button>
+  <button type="button" id="indiChatLink">Chat</button>`;
+  viewEl.appendChild(headerEl);
+  viewEl.appendChild(renderItems(data)) 
 
-  `;
-//estos son los manejadores de eventos
-//const filtres = document.querySelector("filterSection")
+  //agrega los eventos listener
+  const aboutLinkEl = headerEl.querySelector('#aboutLink');
+  aboutLinkEl.addEventListener('click', () => navigateTo("/about", { name: "Xochitl" }));
+ 
+  const chatLinkEl = headerEl.querySelector('#indiChatLink');
+  chatLinkEl.addEventListener('click', () => navigateTo( "/individualChat", { name: "Xochitl" }));
 
-const root =  document.getElementById("root");
-root.appendChild(renderItems(data)) //si no esta dentro de la funcion no se ve nada pero si esta adentro se ve en el orden que no es
-//console.log(root)
-
-  viewEl.querySelector('#aboutLink').addEventListener( 'click', () => { 
-    navigateTo('/about');
-  });
- 
- 
-  viewEl.querySelector('#indichatLink').addEventListener('click',() =>{
-    navigateTo('/individualChat');
-  });
- // console.log(Home);
- 
+ // const root =  document.getElementById("root");
+  
 
 
   return viewEl;

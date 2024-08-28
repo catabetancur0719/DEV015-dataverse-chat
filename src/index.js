@@ -7,7 +7,8 @@ TODO:
 3.- Invocar el router para renderizar la vista correcta.
 */
 import Home from './views/home.js';//import the views
-import { About } from './views/About.js';
+
+import {About} from './views/About.js';
 import {ChatIndividual} from './views/individualChat.js';
 import {ErrorView} from './views/ErrorView.js';
 import { setRootEl, setRoutes, onURLChange } from './router.js';
@@ -28,8 +29,17 @@ setRoutes(routes);
 // Set the root element where views will be rendered
 window.addEventListener("DOMContentLoaded", () => {
   setRootEl(document.querySelector("#root") );  //llama al div root del html x su id
-  //console.log(Home)
   onURLChange(window.location)
 });
 
+// Handle URL changes postward y back ESTARA BIEN??'
+window.addEventListener('popstate', () => {   // ojo aqui si la navegacion de las vistas no funciona entre los parentesis van {target} y hacer un console.log a target eso ayuda a ver
 
+  //cosntruye el objt location
+  const location = {
+    pathname: window.location.pathname,
+    search: window.location.search,
+  };
+ 
+  onURLChange(location); /// Llama a onURLChange con la URL actual
+});
