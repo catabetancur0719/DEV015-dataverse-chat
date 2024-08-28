@@ -1,3 +1,4 @@
+import { navigateTo } from "../router.js"; 
 export const renderItems = (data) => {
     
   const newElementUl = document.createElement("ul");
@@ -11,7 +12,9 @@ export const renderItems = (data) => {
     newElementLi.setAttribute("itemtype", "http://schema.org/Item"); 
     newElementLi.setAttribute("itemscope", ""); 
   
-      
+    const newButton = document.createElement("button");
+    newButton.addEventListener('click', () => navigateTo( "/individualChat", element));
+    newButton.innerHTML="Chat"
     newElementLi.innerHTML += ` 
       <img src="${element.imageUrl}" alt="${element.id}"/>
       <p><strong>${element.name}</strong></p>
@@ -19,7 +22,8 @@ export const renderItems = (data) => {
       <p>Año de creación:${element.facts.añoCreacion}</p> 
       <p>Lugar de Origen:${element.facts.pais}</p>
       <p>Album más vendido:${element.facts.albumMasFamoso}</p>
-      <p>Integrantes:${element.facts.integrantes}</p> `
+      <p>Integrantes:${element.facts.integrantes}</p>`
+    newElementLi.appendChild(newButton);
     newElementUl.appendChild(newElementLi);//el ul es el padre y va a tener un hijo li
     
   });

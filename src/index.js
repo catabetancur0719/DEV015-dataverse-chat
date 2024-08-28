@@ -7,6 +7,7 @@ TODO:
 3.- Invocar el router para renderizar la vista correcta.
 */
 import Home from './views/home.js';//import the views
+
 import {About} from './views/About.js';
 import {ChatIndividual} from './views/individualChat.js';
 import {ErrorView} from './views/ErrorView.js';

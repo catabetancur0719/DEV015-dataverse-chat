@@ -1,7 +1,7 @@
 import { navigateTo } from "../router.js";
 
 
-export function ChatIndividual() {
+export function ChatIndividual(band) {//variable que recibe el elemento
   const element = document.createElement('div');
   element.innerHTML = `
   <h1>Chat Individual </h1>
@@ -15,7 +15,7 @@ export function ChatIndividual() {
   elementLinkEl.addEventListener('click', () => navigateTo("/", { name: "Xochitl" }));
   
   
-
+console.log(band)
 
     
   return element;
