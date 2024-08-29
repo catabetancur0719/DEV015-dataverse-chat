@@ -39,14 +39,16 @@ export const renderView = (pathname, props = {}) => {  //no exportada
   rootEl.appendChild(ROUTES[pathname](props));
 } 
  
-export const navigateTo = (pathname, props) => {
-  // update window history with pushState
-  // render the view with the pathname and props
-  // Guardamos la nueva "dirección" en la barra de direcciones
-  window.history.pushState({ pathname, ...props}, '', pathname); //comilla vacia por temas de compativilidad 
-  // Mostramos la nueva "pantalla" correspondiente
+export const navigateTo = (pathname, props = {}) => {
+  const queryString = Object.keys(props)
+    .map((key) => `${key}=${props[key]}`)
+    .join("&");
+
+  const fullPath = `${pathname}?${queryString}`;
+  window.history.pushState({}, "", fullPath);
+
   renderView(pathname, props);
-}
+};
  
 export const onURLChange = (location) => {
   // parse the location for the pathname and search params
