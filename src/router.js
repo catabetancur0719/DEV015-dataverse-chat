@@ -16,13 +16,15 @@ export const setRoutes = (routes) => {
   ROUTES = routes;
 }
  
-export const queryStringToObject = (queryString) => { //no exportada
+export const queryStringToObject = (queryString) => { //parece q esta define las URL
   // convert query string to URLSearchParams
   // convert URLSearchParams to an object
   // return the object
-  const urlParams =Object.fromEntries(new URLSearchParams(queryString));
+  const urlParams =Object.fromEntries(new URLSearchParams(queryString)); //manipula los parametros de URL
   return urlParams;
 }
+
+
  
 export const renderView = (pathname, props = {}) => {  //no exportada
   rootEl.innerHTML = "";
@@ -31,7 +33,6 @@ export const renderView = (pathname, props = {}) => {  //no exportada
   if(!ROUTES[pathname]){
     // Si no existe, redirigir a la ruta de error
     window.history.pushState({}, "/errorView", `${window.location.origin}/errorView`);
-   
     // Actualizar pathname
     pathname = "/errorView";
   } 
@@ -39,15 +40,15 @@ export const renderView = (pathname, props = {}) => {  //no exportada
   rootEl.appendChild(ROUTES[pathname](props));
 } 
  
-export const navigateTo = (pathname, props) => {
+export const navigateTo = (pathname, props={}) => {
   // update window history with pushState
   // render the view with the pathname and props
-  // Guardamos la nueva "dirección" en la barra de direcciones
-  window.history.pushState({ pathname, ...props}, '', pathname); //comilla vacia por temas de compativilidad 
-  // Mostramos la nueva "pantalla" correspondiente
+  // window.history.pushState(props, '', pathname);
+  const urlParams = new URLSearchParams(props)
+  window.history.pushState(props, '', pathname + '?' + urlParams); //comilla vacia por temas de compativilidad 
   renderView(pathname, props);
 }
- 
+
 export const onURLChange = (location) => {
   // parse the location for the pathname and search params
   // convert the search params to an object

@@ -6,9 +6,9 @@ TODO:
 2.- Pasar "root element" a router.
 3.- Invocar el router para renderizar la vista correcta.
 */
-import Home from './views/home.js';//import the views
+import Home from './views/Home.js';//import the views
 
-import {About} from './views/About.js';
+import {ApiKey} from './views/ApiKey.js';
 import {ChatIndividual} from './views/individualChat.js';
 import {ErrorView} from './views/ErrorView.js';
 import { setRootEl, setRoutes, onURLChange } from './router.js';
@@ -18,7 +18,7 @@ import { setRootEl, setRoutes, onURLChange } from './router.js';
 // Define your routes and their associated views
 const routes = {
   '/': Home,
-  '/about': About, // por convension siempre termina con coma para saber que se puede agregar algo mas
+  '/apiKey': ApiKey, // por convension siempre termina con coma para saber que se puede agregar algo mas
   '/errorView':ErrorView,
   '/individualChat':ChatIndividual,
 };
@@ -33,13 +33,10 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 // Handle URL changes postward y back ESTARA BIEN??'
-window.addEventListener('popstate', () => {   // ojo aqui si la navegacion de las vistas no funciona entre los parentesis van {target} y hacer un console.log a target eso ayuda a ver
+window.addEventListener("popstate", ({ target }) => { 
+  onURLChange(target.location);
+});    
 
-  //cosntruye el objt location
-  const location = {
-    pathname: window.location.pathname,
-    search: window.location.search,
-  };
+//cosntruye el objt location
  
-  onURLChange(location); /// Llama a onURLChange con la URL actual
-});
+ 
