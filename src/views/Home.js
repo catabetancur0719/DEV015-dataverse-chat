@@ -32,7 +32,15 @@ function Home(props) {
   aboutLinkEl.addEventListener('click', () => navigateTo("/about", { name: "Xochitl" }));
  
   const chatLinkEl = headerEl.querySelector('#indiChatLink');
-  chatLinkEl.addEventListener('click', () => navigateTo( "/individualChat", { name: "Xochitl" }));
+  chatLinkEl.addEventListener('click', () => {
+    const item = data.find(item => item.name === props.name);
+    
+    if (item) {
+      navigateTo("/individualChat", { id: item.id, name: item.name });
+    } else {
+      navigateTo("/errorView", { message: "Error page not found" });
+    }
+  });
 
  // const root =  document.getElementById("root");
   

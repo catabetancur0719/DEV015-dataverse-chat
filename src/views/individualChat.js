@@ -1,6 +1,7 @@
 import { navigateTo } from "../router.js";
 
 
+
 export function ChatIndividual(band) {//variable que recibe el elemento
   const element = document.createElement('div');
   element.innerHTML = `
