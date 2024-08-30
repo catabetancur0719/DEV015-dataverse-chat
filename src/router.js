@@ -40,6 +40,7 @@ export const renderView = (pathname, props = {}) => {  //no exportada
   rootEl.appendChild(ROUTES[pathname](props));
 } 
  
+
 export const navigateTo = (pathname, props={}) => {
   // update window history with pushState
   // render the view with the pathname and props
@@ -48,6 +49,7 @@ export const navigateTo = (pathname, props={}) => {
   window.history.pushState(props, '', pathname + '?' + urlParams); //comilla vacia por temas de compativilidad 
   renderView(pathname, props);
 }
+
 
 export const onURLChange = (location) => {
   // parse the location for the pathname and search params
