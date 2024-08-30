@@ -158,4 +158,8 @@
     padding:5px;
   
   }
-   
+  /*------------------ vista del chat individual---------------*/
+  .btnGo{
+     border-radius:100%;
+     width:20% ;
+  } 

@@ -13,7 +13,7 @@ export const renderItems = (data) => {
     newElementLi.setAttribute("itemscope", ""); 
   
     const newButton = document.createElement("button");
-    newButton.addEventListener('click', () => navigateTo( "/individualChat", element));
+    newButton.addEventListener('click', () => navigateTo("/individualChat", element.name));
     newButton.innerHTML="Chat"
     newElementLi.innerHTML += ` 
       <img src="${element.imageUrl}" alt="${element.id}"/>

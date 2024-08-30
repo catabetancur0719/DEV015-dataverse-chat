@@ -1,7 +1,8 @@
 import { navigateTo } from "../router.js";
-
+//import  data  from '../data/dataset.js';
 
 export function ChatIndividual(band) {//variable que recibe el elemento
+
   const element = document.createElement('div');
   element.innerHTML = `
   <h1>Chat Individual </h1>  
@@ -9,6 +10,7 @@ export function ChatIndividual(band) {//variable que recibe el elemento
   <section> 
     <div class="leadVocal" id="leadVocal"> 
       <h2 class="singer" id="singer"> </h2>
+
       <span class="singerDetails" id="singerDetails"></span>  
     </div>
     <div class="messages" id="messages">
@@ -18,16 +20,16 @@ export function ChatIndividual(band) {//variable que recibe el elemento
       <button type="submit" class="btnSend">Enviar</button>
     </div>
 
-  </section>
-  `;
+  </section>`;
+   
+  /*element.querySelector('.returnHome').addEventListener('click',() =>{
+    navigateTo('/');*/
+  const elementLinkEl = element.querySelector('.returnHome');
+  elementLinkEl.addEventListener('click', () => navigateTo("/", {name: "home"}));
 
-   const elementLinkEl = element.querySelector('.returnHome');
-  elementLinkEl.addEventListener('click', () => navigateTo("/", { name: "Xochitl" }));
   
+  //console.log(band); 
   
-console.log(band)
-
-    
   return element;
 }
 
