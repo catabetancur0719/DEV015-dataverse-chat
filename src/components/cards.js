@@ -13,7 +13,8 @@ export const renderItems = (data) => {
     newElementLi.setAttribute("itemscope", ""); 
   
     const newButton = document.createElement("button");
-    newButton.addEventListener('click', () => navigateTo( "/individualChat", element));
+    newButton.classList.add("go")
+    newButton.addEventListener('click', () => navigateTo("/individualChat", element.name));
     newButton.innerHTML="Chat"
     newElementLi.innerHTML += ` 
       <img src="${element.imageUrl}" alt="${element.id}"/>
@@ -43,7 +44,7 @@ export function renderResult(result) {
   document.body.appendChild(resultContainer);
   return renderResult;
 } 
-/*AQUI HABIA Q EXPORTAR LA FUNCION PARA LA DECADA DE LOS 90 */
+/*AQUI EXPORTAR LA FUNCION PARA LA DECADA DE LOS 90 */
 export function renderDecadas(decadaResult){
   const estadisticasDecada = document.getElementById('estadisticas');
   const resultadoDecadas = document.getElementById('decade');

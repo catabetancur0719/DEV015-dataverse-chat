@@ -158,4 +158,56 @@
     padding:5px;
   
   }
+  /*--------------------- vista del chat individual-------------------*/
+    .chatIndividual{ /*es el div q contiene el chat*/
+    height:90%;  
+    width:90% ;
+    margin:0.5%;
+    padding:1%;
    
+    }
+    section{
+    height:90%;  
+    width:50% ;
+    margin: 1%;
+    flex-direction: row;
+  
+    }
+    .api{
+      width: 40%;
+      
+      margin:1% ;
+      padding: 1%;
+      background: cover;
+   
+    }
+  .leadVocal{
+    height:100%;  
+    width:60% ;
+    display: flex;
+    flex-flow: column ;
+  }
+  .messages{
+    height:100%;  
+    width:90% ;
+    display: flex;
+    ;
+ 
+  }
+  .singerDetails{
+    height: 80%;  
+    width:80% ;
+  }
+  .api{
+    height:100%;
+    width: 80%;
+    margin: 1%;
+    padding: 1%;
+  }
+  form{
+   height:60% ;
+   margin-bottom: 2%;
+  }  
+  .inputApi{
+    width:40% ;
+   }
