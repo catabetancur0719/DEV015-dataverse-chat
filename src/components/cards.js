@@ -13,7 +13,9 @@ export const renderItems = (data) => {
     newElementLi.setAttribute("itemscope", ""); 
   
     const newButton = document.createElement("button");
+
     newButton.classList.add("go")
+
     newButton.addEventListener('click', () => navigateTo("/individualChat", element.name));
     newButton.innerHTML="Chat"
     newElementLi.innerHTML += ` 

@@ -1,4 +1,5 @@
 
+
 import { navigateTo } from "../router.js";
 import data from "../data/dataset.js";
 
@@ -31,6 +32,7 @@ export function ChatIndividual(chatData) {//variable que recibe el elemento
  
   const elementLinkEl = element.querySelector('.returnHome');
   elementLinkEl.addEventListener('click', () => navigateTo("/", {name: "home"}));
+
 
 
   
