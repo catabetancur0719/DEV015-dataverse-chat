@@ -21,13 +21,17 @@ function Home(props) {
   <h1>House of Rock </h1>
   
   <button type="button" id="apiKeyLink">ApiKey</button>
-  <button type="button" id="indiChatLink">Chat</button>`;
+
+  <button type="button" id="indiChatLink">Chat</button>`; //este te lleva a la vista de error x ahora
+
   viewEl.appendChild(headerEl);
   viewEl.appendChild(renderItems(data)) 
 
   //agrega los eventos listener
   const apiLinkEl = headerEl.querySelector('#apiKeyLink');
-  apiLinkEl.addEventListener('click', () => navigateTo("/apiKey", { name: "apiKey" }));
+
+  apiLinkEl.addEventListener('click', () => navigateTo("/apiView", { name: "apiKey" }));
+
  
   const chatLinkEl = headerEl.querySelector('#indiChatLink');
   chatLinkEl.addEventListener('click', () => {

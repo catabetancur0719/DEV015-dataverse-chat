@@ -8,7 +8,8 @@ TODO:
 */
 import Home from './views/Home.js';//import the views
 
-import {ApiKey} from './views/ApiKey.js';
+
+import { ApiView } from './views/apiview.js';
 import {ChatIndividual} from './views/individualChat.js';
 import {ErrorView} from './views/ErrorView.js';
 import { setRootEl, setRoutes, onURLChange } from './router.js';
@@ -18,7 +19,9 @@ import { setRootEl, setRoutes, onURLChange } from './router.js';
 // Define your routes and their associated views
 const routes = {
   '/': Home,
-  '/apiKey': ApiKey, // por convension siempre termina con coma para saber que se puede agregar algo mas
+
+  '/apiView': ApiView, // por convension siempre termina con coma para saber que se puede agregar algo mas
+
   '/errorView':ErrorView,
   '/individualChat':ChatIndividual,
 };
