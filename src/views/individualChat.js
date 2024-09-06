@@ -1,39 +1,43 @@
-
 import { navigateTo } from "../router.js";
 import data from "../data/dataset.js";
 
-export function ChatIndividual(chatData) {//variable que recibe el elemento
-  console.log(chatData);
+export function ChatIndividual(props) {  //posible error en la forma de importar la data y de como usarla
+ 
+  console.log(props);
+  
+
   const element = document.createElement('div'); 
   element.classList.add("chatIndividual");
-
-  const chatElement = document.createElement('section');
-  chatElement.innerHTML += `
-    <h1>House of Rock </h1>
-    <button type="button" class="returnHome">Home</button>
-    
-    <div class="leadVocal" id="leadVocal"> 
-      <h2 class="singer" id="singer">${chatData.name}</h2>
-      <img src="${chatData.imageUrl}" alt="${chatData.id}"/>
-      <p>${chatData.shortDescription}</p>
-    </div>
-    <div class="messages" id="messages">
-        <section class="singerMessage">.....</section>
-    </div>
-    <div class="userMessage" id="userMessage">
-      <form>
-        <textarea  class="userMessage" id="userM" placeholder="iniciarchat"></textarea> 
-        <button type="submit" class="btnSend"> Enviar </button>
-      </form>
-     </div>`;
-  element.appendChild(chatElement);
- 
- 
-  const elementLinkEl = element.querySelector('.returnHome');
-  elementLinkEl.addEventListener('click', () => navigateTo("/", {name: "home"}));
-
-
   
+  const bands =data.find((item)=> item.name === props);
+  
+
+  // Crea el contenido HTML del chat
+  const chatElement = document.createElement('div');
+  console.log(chatElement);
+
+  chatElement.innerHTML += `
+    <div class="titleChat" id="titleChat">
+    <h1>House of Rock </h1>
+    <button type="button" class="returnHome">Home</button></div>
+    <div class="leadVocal" id="leadVocal">
+      <h2 class="singer" id="singer">${props.name}</h2>
+      <p class="descrip">${props.descripcionLarga}</p>
+        <div class="image">
+          <img src="${props.imageUrl}" alt="${props.id}"/>
+        </div>
+     </div>
+    <div class="messages" id="messages"></div>
+    <div class="userMessage" id="userM">
+        <textarea  class="userMessage" id="userText" placeholder="iniciar chat"></textarea>
+        <button type="submit" class="btnSend"> Enviar </button>
+     </div>`;
+  
+  element.appendChild(chatElement);
+
+  const returnButton = element.querySelector('.returnHome');
+  returnButton.addEventListener('click', () => navigateTo("/", { name: "home" }));
+
+
   return element;
 }
-
