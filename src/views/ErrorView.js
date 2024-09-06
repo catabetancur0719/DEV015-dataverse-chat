@@ -14,7 +14,7 @@ export function ErrorView(props) {
     navigateTo('/');
   });*/
   const ErrorLinkEl = viewEl.querySelector('.returnHome');
-  ErrorLinkEl.addEventListener('click', () => navigateTo("/", { name: "Xochitl" }));
+  ErrorLinkEl.addEventListener('click', () => navigateTo("/" ));
 
   return viewEl;
 }

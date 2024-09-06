@@ -9,11 +9,9 @@ import { navigateTo } from "../router.js";
 //import{ filterSection }from '../components/filters.js';// esto es la parte de los filtros  de html en dataverse
 
 
-
-
 function Home(props) {
   const viewEl = document.createElement('div');
- // const root =  document.getElementById("root");
+  // const root =  document.getElementById("root");
   //root.classList.add("vacio");
  
   const headerEl = document.createElement('header'); 
@@ -22,29 +20,35 @@ function Home(props) {
 
   <h1>House of Rock </h1>
   
-  <button type="button" id="aboutLink">About</button>
-  <button type="button" id="indiChatLink">Chat</button>`;
+  <button type="button" id="apiKeyLink">ApiKey</button>
+
+  <button type="button" id="indiChatLink">Chat</button>`; //este te lleva a la vista de error x ahora
+
   viewEl.appendChild(headerEl);
   viewEl.appendChild(renderItems(data)) 
 
   //agrega los eventos listener
-  const aboutLinkEl = headerEl.querySelector('#aboutLink');
-  aboutLinkEl.addEventListener('click', () => navigateTo("/about", { name: "Xochitl" }));
+  const apiLinkEl = headerEl.querySelector('#apiKeyLink');
+
+  apiLinkEl.addEventListener('click', () => navigateTo("/apiView", { name: "apiKey" }));
+
  
   const chatLinkEl = headerEl.querySelector('#indiChatLink');
   chatLinkEl.addEventListener('click', () => {
     const item = data.find(item => item.name === props.name);
     
     if (item) {
-      navigateTo("/individualChat", { id: item.id, name: item.name });
+
+      navigateTo("/individualChat", { name: item.name });
+
     } else {
       navigateTo("/errorView", { message: "Error page not found" });
     }
   });
 
- // const root =  document.getElementById("root");
+ 
+  // const root =  document.getElementById("root");
   
-
 
   return viewEl;
 }
