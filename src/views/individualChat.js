@@ -1,3 +1,4 @@
+
 import { navigateTo } from "../router.js";
 import data from "../data/dataset.js";
 import {communicateWithOpenAI}  from "../lib/openAiApi.js";
@@ -47,7 +48,6 @@ export function ChatIndividual(props) {  //props solo contiene la id
   sendButton.addEventListener('click',() =>{
     const msnDiv = element.querySelector('#messages').value 
     communicateWithOpenAI(msnDiv)
-
  
   })
     
