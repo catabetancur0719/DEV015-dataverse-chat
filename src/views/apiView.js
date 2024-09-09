@@ -22,7 +22,7 @@ export function ApiView(props) {
   // aqui se usa el set api para poder guardar en locaol storage
   const  btnSave = viewEl.querySelector ('.btnApi');
   btnSave.addEventListener('click', () => {
-    const btnInput = viewEl.querySelector('.inputApi').value
+    const btnInput = viewEl.querySelector('.inputApi').value//el ".value" obtiene el valor ingresado en el input
     setApiKey(btnInput)
     alert("API guardada exitosamente");
   });
