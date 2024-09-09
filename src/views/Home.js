@@ -35,11 +35,11 @@ function Home(props) {
  
   const chatLinkEl = headerEl.querySelector('#indiChatLink');
   chatLinkEl.addEventListener('click', () => {
-    const item = data.find(item => item.name === props.name);
+    const item = data.find(item => item.id === props.id);
     
     if (item) {
 
-      navigateTo("/individualChat", { name: item.name });
+      navigateTo("/individualChat", { id: item.id });
 
     } else {
       navigateTo("/errorView", { message: "Error page not found" });

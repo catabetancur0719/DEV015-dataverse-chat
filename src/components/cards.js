@@ -16,7 +16,8 @@ export const renderItems = (data) => {
 
     newButton.classList.add("go")
 
-    newButton.addEventListener('click', () => navigateTo("/individualChat", element.name));
+    newButton.addEventListener('click', () => navigateTo("/individualChat", {id:element.id}));
+
     newButton.innerHTML="Chat"
     newElementLi.innerHTML += ` 
       <img src="${element.imageUrl}" alt="${element.id}"/>

@@ -26,7 +26,7 @@ export const queryStringToObject = (queryString) => { //parece q esta define las
 
 
  
-export const renderView = (pathname, props = {}) => {  //no exportada
+export const renderView = (pathname, props = {}) => {  
   rootEl.innerHTML = "";
 
   //Verifica si la ruta especificada existe en las rutas definidas (ROUTES) o si se proporciona un parámetro "id" en props
