@@ -9,7 +9,7 @@ export const communicateWithOpenAI = (messages) => { //se importa en el chat ind
  
 
   //peticion fetch
-  fetch('https://api.openai.com/v1/chat/completions', { 
+  fetch( openAi, { 
     method: "POST", //método HTTP usado en el request, post envía datos.
     headers: {
       //encabezados HTTP que se envían con el request
@@ -28,11 +28,11 @@ export const communicateWithOpenAI = (messages) => { //se importa en el chat ind
   })
     .then(response => response.json())
     .catch(error =>{
-      console.log.error('Error:', error);
+      console.error('Error:', error);
       throw error;
     });
     
   //la instruccion es conectar la funcion comunicateblablaba con el DOM usando, algun boton o algo
   
-   
+  return messages
 };
