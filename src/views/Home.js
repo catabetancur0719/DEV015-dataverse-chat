@@ -38,7 +38,9 @@ function Home(props) {
     const item = data.find(item => item.id === props.id);
     
     if (item) {
+
       navigateTo("/individualChat", { id: item.id });
+
     } else {
       navigateTo("/errorView", { message: "Error page not found" });
     }
