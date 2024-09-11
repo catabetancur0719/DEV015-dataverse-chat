@@ -9,6 +9,7 @@ export const communicateWithOpenAI = (messages) => { //se importa en el chat ind
  
 
   //peticion fetch
+
   fetch( openAi, { 
     method: "POST", //método HTTP usado en el request, post envía datos.
     headers: {
