@@ -5,11 +5,11 @@ import data from "../data/dataset.js";
 export const communicateWithOpenAI = (messages) => { //se importa en el chat individual
 //Aquí es donde debes implementar la petición con fetch pide datos en js
   const apiKey =  getApiKey ();  //para llamar a la apikey;
-  //const openAi = "https://api.openai.com/v1/chat/completions";  //define la url de openai*/
+  const openAi = "https://api.openai.com/v1/chat/completions";  //define la url de openai*/
  
 
   //peticion fetch
-  fetch('https://api.openai.com/v1/chat/completions', { 
+  fetch(openAi, { 
     method: "POST", //método HTTP usado en el request, post envía datos.
     headers: {
       //encabezados HTTP que se envían con el request
