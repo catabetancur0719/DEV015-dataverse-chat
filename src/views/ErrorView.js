@@ -1,7 +1,7 @@
 //aui van la vista del error
 import { navigateTo } from "../router.js";
 
-export function ErrorView(props) {
+export function ErrorView() {
   const viewEl = document.createElement('div');
   viewEl.innerHTML = `
     <h2> Error page not found </h2>
