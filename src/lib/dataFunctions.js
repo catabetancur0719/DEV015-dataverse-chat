@@ -31,6 +31,7 @@ export const sortData = (data,sortBy,sortOrder) =>{ //ordena el arreglo
       }
     }
   }); 
+  
   return sortDataResult;
 }
   

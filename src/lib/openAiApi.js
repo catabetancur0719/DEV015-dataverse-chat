@@ -1,19 +1,20 @@
 //en este va get api 
 import { getApiKey } from './ApiKey.js';
-import data from "../data/dataset.js"; 
 
-export const communicateWithOpenAI = (messages) => { //se importa en el chat individual
+
+export const communicateWithOpenAI = (messages,bands) => { //se importa en el chat individual
 //Aquí es donde debes implementar la petición con fetch pide datos en js
   const apiKey =  getApiKey ();  //para llamar a la apikey;
-  //const openAi = "https://api.openai.com/v1/chat/completions";  //define la url de openai*/
+  const openAi = "https://api.openai.com/v1/chat/completions";  //define la url de openai*/
  
-
+  //console.log(bands);
   //peticion fetch
-  fetch('https://api.openai.com/v1/chat/completions', { 
+
+  return fetch( openAi, { 
     method: "POST", //método HTTP usado en el request, post envía datos.
     headers: {
       //encabezados HTTP que se envían con el request
-      Authorization: `Bearer ${apiKey}`, //bearer indica el envío de un token de acceso.
+      "Authorization": `Bearer ${apiKey}`, //bearer indica el envío de un token de acceso.
       "Content-Type": "application/json", //el cuerpo del request es en formato JSON.
     },
     body: JSON.stringify({
@@ -21,18 +22,20 @@ export const communicateWithOpenAI = (messages) => { //se importa en el chat ind
       model: "gpt-4", //Modelo OpenAI a usar
       messages: [ //Array de mensajes del chat
         {
-          role:"system", content:`Hola somos ${data.name}, tu personalidad se basa en ${data.descripcionLarga}, 
-          responderas simulando ser el cantante de la banda con respuestas cortas no mas de 30 caracteres`}
+          role:"system", content:`Hola soy  ${bands.name} responderas como si fueras el cantante y daras tu nombre, tu personalidad se basa en ${bands.descripcionLarga}, 
+            con respuestas cortas no mas de 30 caracteres`},
+        {role:"user", content: messages }
       ], 
     }),
   })
     .then(response => response.json())
+    .then(response => {
+      console.log(response.choices[0].message.content)
+      return response.choices[0].message.content
+    })
     .catch(error =>{
-      console.log.error('Error:', error);
+      console.error('Error:', error);
       throw error;
     });
-    
-  //la instruccion es conectar la funcion comunicateblablaba con el DOM usando, algun boton o algo
-  
-   
+     
 };

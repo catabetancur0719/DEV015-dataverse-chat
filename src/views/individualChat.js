@@ -49,11 +49,18 @@ export function ChatIndividual(props) {  //props solo contiene la id
   sendButton.addEventListener('click', () => {
     const userText = element.querySelector('#userText').value; // Obtener el valor del textarea
     const messagesDiv = element.querySelector('#messages'); // Contenedor de mensajes
-
+    communicateWithOpenAI(userText, bands).then((response)=>{
+    //  console.log(response)
+      const newMessage = document.createElement('p');
+      newMessage.classList.add("chatResponse")
+      newMessage.textContent = ` ${response}`;
+      messagesDiv.appendChild(newMessage); //entrega el nuevo mensaje del usuario al div
+    });
+    
     if (userText.trim() !== '') {
       // Crear un nuevo párrafo para mostrar el mensaje
       const newMessage = document.createElement('p');
-      newMessage.textContent = `You: ${userText}`;
+      newMessage.textContent = ` ${userText}`;
       messagesDiv.appendChild(newMessage); // Añadir el nuevo mensaje al contenedor de mensajes
       
       // Limpiar el textarea
